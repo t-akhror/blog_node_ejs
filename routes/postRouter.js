@@ -9,5 +9,6 @@ router.get('/create',isAuthenticated,post_create_get)
 router.get('/:id',post_details)
 router.post('/',isAuthenticated,post_create_post)
 router.delete('/:id',post_delete)
-// commentsd
+
+
 module.exports=router;

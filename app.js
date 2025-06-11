@@ -31,6 +31,8 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
+
+// Identifikatsiyadan o'tgan foydalanuvchini localsga saqlab qo'yish
 app.use((req, res, next) => {
     res.locals.user = {
         userId:req.session.userId ,
@@ -39,17 +41,13 @@ app.use((req, res, next) => {
     next();
   });
 
- 
-app.get('/dashboard', (req, res) => {
-    if (!req.session.userId) return res.redirect('/login');
-    res.send("Xush kelibsiz! Siz tizimga kirdingiz.");
-  });
-
+//  Home page 
 app.get('/',(req,res)=>{
     console.log(req.session.userId)
     res.render('index')
 })
 
+// About page
 app.get('/about',(req,res)=>{
     res.render('about')
 })
@@ -59,6 +57,8 @@ app.get('/about',(req,res)=>{
 
 //  auth
 app.use('/auth',authRouter)
+
+// logout formasi
 app.get('/logout',(req,res)=>{
     req.session.destroy(err=>{
         if(err){
