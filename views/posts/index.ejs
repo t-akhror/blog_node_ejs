@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <%- include('../partials/head.ejs') %>
+  <body>
+   <%- include('../partials/nav.ejs') %>
+   <!-- Main -->
+   <div class="mt-4 p-5 text-bg-light rounded">
+    <h1 class="mb-3">Recent posts</h1> 
+    <% posts.map((post,index)=>{ %>
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title%></h5>
+          <p class="card-text"><%= post.body %></p>
+          <p class="card-text float-end"><small class="text-body-secondary"><%= post.createdAt%></small></p>
+          <a href=<%=`/posts/${post._id}`%> class='stretched-link'></a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    
+   <%- include('../partials/footer.ejs')%>
+  </body>
+</html>

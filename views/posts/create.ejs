@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <%- include('../partials/head.ejs') %>
+  <body>
+   <%- include('../partials/nav.ejs') %>
+   <!-- Main -->
+   <div class="mt-4 p-5 text-bg-light rounded">
+    <h1>Create a new blog</h1> 
+    <form action="/posts" method="POST">
+      <div class="form-group mt-2">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="Title about post...">
+      </div>
+      <div class="form-group mt-2">
+        <label for="snippet">Tags</label>
+        <input type="text" class="form-control" name="tags" id="snippet" placeholder="Snippet...">
+      </div>
+  
+      <div class="form-group mt-2">
+        <label for="body">Body of post</label>
+        <textarea class="form-control" id="body" name="body" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success mt-2">Saqlash</button>
+    </form>
+  </div>
+   <%- include('../partials/footer.ejs')%>
+  </body>
+</html>
